@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Business Search</title>
+
+<meta charset="UTF-8">
+
+<script src = "/static/app.js" type = text/javascript> </script>
+
+<style>
+
+body{
+  background-color: #d9d9d9;
+}
+
+/* Search Page Container and it's elements */
+
+
+.container{
+    width: 635px;
+    height: 500px;
+    margin-left: 399px;
+    border-style: solid;
+    border-color: #d1e0e0;
+    border-width: 2px;
+    background-color: white;
+    box-shadow: 0 0 0 3px #b3b3b3;
+}
+
+.banner{
+  margin-bottom: 20px;
+  object-fit: cover;
+  object-position: 0 96%;
+  width: 635px;
+  height: 130px;
+  color: white;
+  top: 20px;
+  left: 15px;
+  color: white;
+}
+
+.bs{
+  position: absolute;
+  top: 8%;
+  left: 552px;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 25px;
+  font-family: Arial, sans-serif;
+}
+
+.fill{
+  position: absolute;
+  top: 15%;
+  left: 645px;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.submit{
+  background-color: #0e75b4;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-left: 38px;
+  box-shadow: 0px 4px #0b5c8e;
+}
+
+.submit:hover{
+  background-color: #0b5c8e;
+}
+
+.clear{
+  background-color: #ffa31a;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: 110px;
+  font-size: 16px;
+  margin-top: 10px;
+  box-shadow: 0px 4px #e68a00;
+}
+
+.clear:hover{
+  background-color: #e68a00;
+}
+
+.hz{
+  margin-top: 20px;
+  border-color: #0e75b4;
+  margin-bottom: 10px;
+  border-width: 0.5px;
+}
+
+.lb1{
+    color: #0e75b4;
+    margin-bottom: 5px;
+    margin-left: 38px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+}
+
+.rq1{
+    color: #ff4d4d;
+  }
+
+.lb2{
+  display: inline-block;
+  color: #0e75b4;
+  margin-bottom: 5px;
+  margin-left: 38px;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+}
+
+.lb3{
+  display: inline-block;
+  color: #0e75b4;
+  margin-left: 210px;
+  margin-bottom: 5px;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+}
+
+.lb4{
+  color: #0e75b4;
+  margin-left: 38px;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+}
+
+.in1{
+  width: 550px;
+  margin-bottom: 10px;
+  margin-left: 38px;
+  height: 25px;
+}
+
+.in2{
+  margin-bottom: 10px;
+  margin-left: 38px;
+  height: 20px;
+  width: 150px;
+}
+
+.in3{
+    margin-left: 38px;
+    margin-bottom: 10px;
+    height: 30px;
+}
+
+.sel{
+  width: 220px;
+  margin-left: 175px;
+  margin-bottom: 10px;
+  height: 30px;
+}
+
+/* Results table and it's elements*/
+
+.table1{
+  width:1000px;
+  height: 50px;
+  border:1px solid #d9d9d9;
+  margin-top: 100px;
+  margin-right: auto;
+  margin-left: 225px;
+  border-collapse:collapse;
+  text-align: center;
+  background-color: white;
+  visibility: hidden;
+}
+
+th{
+  width:1000px;
+  height: 50px;
+  border:1px solid #d9d9d9;
+  margin-top: 100px;
+  margin-right: auto;
+  margin-left: 225px;
+  border-collapse:collapse;
+  text-align: center;
+  background-color: white;
+}
+
+.td1{
+  width:1000px;
+  height: 110px;
+  border:1px solid black;
+  margin-top: 100px;
+  margin-right: auto;
+  margin-left: 225px;
+  border-color: #d9d9d9;
+  border-collapse:collapse;
+  text-align: center;
+}
+
+.tdimage{
+  margin-top: 5px;
+  object-fit: cover;
+  object-position: 0 96%;
+  width: 110px;
+  height: 100px;
+  color: white;
+}
+
+.tdtext{
+  text-align: center;
+  font-size: 15px;
+  color: black;
+  text-decoration: none;
+}
+
+.th1{
+  background-color: #0e75b4;
+  width: 5%;
+  font-size: 16px;
+}
+
+.th2{
+  background-color: #0e75b4;
+  width: 12%;
+  font-size: 16px;
+}
+
+.th3{
+  background-color: #0e75b4;
+  width: 50%;
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
+}
+
+.th4{
+  background-color: #0e75b4;
+  width: 15%;
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
+}
+
+.th5{
+  background-color: #0e75b4;
+  width: 15%;
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
+}
+
+/* Business Card Container and it's elements*/
+
+.container2{
+  width: 900px;
+  height: 770px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  border-style: solid;
+  border-color: #d1e0e0;
+  border-width: 2px;
+  background-color: white;
+  box-shadow: 0 0 0 3px #b3b3b3;
+  visibility: hidden;
+}
+
+.hz2{
+  margin-left: 22px;
+  border-color: #d1e0e0;
+  margin-top: 8px;
+  margin-bottom: 20px;
+  border-width: 0.5px;
+
+}
+
+.lf1{
+  font-size: 20px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 2px;
+}
+
+.td2{
+  margin-left: 22px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  width: 800px;
+  height: 300px;
+  border-width: 0px;
+}
+
+.latxt{
+ color: #0d0d0d;
+ font-size: 14px;
+}
+
+.rcorners1{
+  margin-top: 10px;
+  border-radius: 25px;
+  padding: 2px;
+  width: 70px;
+  height: 20px;
+  text-align: center;
+  font-size: 15px;
+}
+
+ /* Images in business card */
+
+.ph1{
+  border-style: solid;
+  border-color: #d9d9d9;
+  margin-left: 22px;
+}
+
+.lph1{
+  text-align: center;
+  margin-top: 60px;
+}
+
+.ph2{
+  border-style: solid;
+  border-color: #d9d9d9;
+  margin-left: 10px;
+}
+
+.ph3{
+  border-style: solid;
+  border-color: #d9d9d9;
+  margin-left: 10px;
+}
+
+.img1{
+  margin-bottom: -50px;
+  width: 275px;
+  height: 300px;
+}
+
+.card1{
+  display: flex;
+}
+
+.tdd{
+  width: 325px;
+  text-align: left;
+}
+
+a{
+  font-size: 12px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Search page elements -->
+
+
+<div class = "container">
+
+<img src = "/static/banner.jpeg" class = "banner">
+
+<div class ="bs"><b>Business Search</b></div>
+<div class ="fill">Fill out the form to get businesses near you!</div>
+
+<form method = "get" action = "javascript:submit()">
+
+  <label for="keyw" class ="lb1">Keyword</label><span class ="rq1">*</span><br>
+
+  <input type="text" id="keyw" name="keyw" class ="in1" required/><br>
+
+  <label for="dist" class = "lb2">Distance(miles)</label>
+  <label for="cat"  class = "lb3">Category</label><span class ="rq1">*</span><br>
+
+  <input type="text" id="dist" name="dist" value = "10" class ="in2"></input>
+
+
+  <select id="cat" name="cat" class ="sel">
+    <option value="all">Default</option>
+    <option value="Arts & Entertainment">Arts & Entertainment</option>
+    <option value="Health & Medical">Health & Medical</option>
+    <option value="Hotels & Travel">Hotels & Travel</option>
+    <option value="Food">Food</option>
+    <option value="Professional Services">Professional Services</option>
+  </select>
+  <br>
+
+  <label for="Location" class = "lb1">Location</label><span class ="rq1">*</span><br>
+
+  <input type="text" id="loc" name="loc" class = "in1" required></input><br>
+
+  <hr style ="width: 560px" class ="hz">
+
+  <label for="Check" class = "lb4">Want us to auto-detect your location? Check here</label>
+
+  <input type="checkbox" id="detloc" name="detloc" onclick = "chk()"><br></input>
+
+  <input type="submit" id = "submit" value ="SUBMIT" class ="submit"> </input>
+
+  <input type ="button" id = "clear"  value="CLEAR" class ="clear" onclick="clr()"></input>
+
+</div>
+</form>
+<!-- Results table elements -->
+
+
+<table id = "table1" class ="table1">
+
+  <thead>
+    <tr>
+      <th class ="th1">No.</th>
+      <th class = "th2">Image</th>
+      <th class = "th3"><a id = "bname" href ="javascript:sortTable1(2)" class ="th3">Business Name</a></th>
+      <th class = "th4"><a id = "brating" href ="javascript:sortTable(3)" class ="th4">Rating</th>
+      <th class = "th5"><a id = "bdist" href ="javascript:sortTable(4)" class ="th5">Distance (miles)</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr id = "p1">
+    <td class ="td1"><p class ="tdtext">1</p></td>
+    <td class ="td1">
+      <img id ="p11" class ="tdimage">
+    </td>
+    <td class ="td1"><a href = "javascript:getdetails(document.getElementById('p12').innerHTML)" id ="p12" class ="tdtext"></a></td>
+    <td class ="td1"><p id ="p13" class ="tdtext"></p></td>
+    <td class ="td1"><p id ="p14" class ="tdtext"></p></td>
+    </tr>
+
+
+    <tr id = "p2">
+    <td class ="td1">2</td>
+    <td  class ="td1">
+    <img id ="p21" class ="tdimage">
+    </td>
+    <td class ="td1"><a href = "javascript:getdetails(document.getElementById('p22').innerHTML)" id ="p22" class ="tdtext"></a></td>
+    <td class ="td1"><p id ="p23" class ="tdtext"></p></td>
+    <td class ="td1"><p id ="p24" class ="tdtext"></p></td>
+    </tr>
+
+    <tr id = "p3">
+    <td class ="td1">3</td>
+    <td  class ="td1">
+    <img id ="p31" src = " " class ="tdimage">
+    </td>
+    <td class ="td1"><a href = "javascript:getdetails(document.getElementById('p32').innerHTML)" id ="p32" class ="tdtext"></a></td>
+    <td class ="td1"><p id ="p33" class ="tdtext"></p></td>
+    <td class ="td1"><p id ="p34" class ="tdtext"></p></td>
+    </tr>
+
+    <tr id = "p4">
+    <td class ="td1">4</td>
+    <td class ="td1">
+    <img id ="p41" src = " " class ="tdimage">
+    </td>
+    <td class ="td1"><a href = "javascript:getdetails(document.getElementById('p42').innerHTML)" id ="p42" class ="tdtext"></a></td>
+    <td class ="td1"><p  id ="p43" class ="tdtext"></p></td>
+    <td class ="td1"><p id ="p44" class ="tdtext"></p></td>
+    </tr>
+
+    <tr id = "p5">
+    <td class ="td1">5</td>
+    <td class ="td1">
+    <img id ="p51" src = " " class ="tdimage">
+    </td>
+    <td class ="td1"><a href = "javascript:getdetails(document.getElementById('p52').innerHTML)" id ="p52" class ="tdtext"></a></td>
+    <td class ="td1"><p id ="p53" class ="tdtext"></p></td>
+    <td class ="td1"><p id ="p54" class ="tdtext"></p></td>
+    </tr>
+
+    <tr id = "p6">
+    <td class ="td1">6</td>
+    <td class ="td1">
+    <img id ="p61" src = " " class ="tdimage">
+    </td>
+    <td class ="td1"><a href = "javascript:getdetails(document.getElementById('p62').innerHTML)" id ="p62" class ="tdtext"></a></td>
+    <td class ="td1"><p id ="p63" class ="tdtext"></p></td>
+    <td class ="td1"><p id ="p64" class ="tdtext"></p></td>
+    </tr>
+
+    <tr id = "p7">
+    <td class ="td1">7</td>
+    <td class ="td1">
+    <img id ="p71" src = " " class ="tdimage">
+    </td>
+    <td class ="td1"><a href = "javascript:getdetails(document.getElementById('p72').innerHTML)" id ="p72" class ="tdtext"></a></td>
+    <td class ="td1"><p id ="p73" class ="tdtext"></p></td>
+    <td class ="td1"><p id ="p74" class ="tdtext"></p></td>
+    </tr>
+
+    <tr id = "p8">
+    <td class ="td1">8</td>
+    <td class ="td1">
+    <img id ="p81" src = " " class ="tdimage">
+    </td>
+    <td class ="td1"><a href = "javascript:getdetails(document.getElementById('p82').innerHTML)" id ="p82" class ="tdtext"></a></td>
+    <td class ="td1"><p id ="p83" class ="tdtext"></p></td>
+    <td class ="td1"><p id ="p84" class ="tdtext"></p></td>
+    </tr>
+
+    <tr id = "p9">
+    <td class ="td1">9</td>
+    <td class ="td1">
+    <img id ="p91" src = " " class ="tdimage">
+    </td>
+    <td class ="td1"><a href = "javascript:getdetails(document.getElementById('p92').innerHTML)" id ="p92" class ="tdtext"></a></td>
+    <td class ="td1"><p id ="p93" class ="tdtext"></p></td>
+    <td class ="td1"><p id ="p94" class ="tdtext"></p></td>
+    </tr>
+
+    <tr id = "p10">
+    <td class ="td1">10</td>
+    <td class ="td1">
+    <img id ="p101" src = " " class ="tdimage">
+    </td>
+    <td class ="td1"><a href = "javascript:getdetails(document.getElementById('p102').innerHTML)" id ="p102" class ="tdtext"></a></td>
+    <td class ="td1"><p id ="p103" class ="tdtext"></p></td>
+    <td class ="td1"><p id ="p104" class ="tdtext"></p></td>
+    </tr>
+
+    <tr id = "p11">
+    <td class ="td1">11</td>
+    <td class ="td1">
+    <img id ="p111" src = " " class ="tdimage">
+    </td>
+    <td class ="td1"><a href = "javascript:getdetails(document.getElementById('p112').innerHTML)" id ="p112" class ="tdtext"></a></td>
+    <td class ="td1"><p id ="p113" class ="tdtext"></p></td>
+    <td class ="td1"><p id ="p114" class ="tdtext"></p></td>
+    </tr>
+
+    <tr id = "p12">
+    <td class ="td1">12</td>
+    <td class ="td1">
+    <img id ="p121" src = " " class ="tdimage">
+    </td>
+    <td class ="td1"><a href = "javascript:getdetails(document.getElementById('p122').innerHTML)" id ="p122" class ="tdtext"></a></td>
+    <td class ="td1"><p id ="p123" class ="tdtext"></p></td>
+    <td class ="td1"><p id ="p124"class ="tdtext"></p></td>
+    </tr>
+
+    <tr id = "p13">
+    <td class ="td1">13</td>
+    <td class ="td1">
+    <img id ="p131" src = " " class ="tdimage">
+    </td>
+    <td class ="td1"><a href = "javascript:getdetails(document.getElementById('p132').innerHTML)" id ="p132" class ="tdtext"></a></td>
+    <td class ="td1"><p id ="p133" class ="tdtext"></p></td>
+    <td class ="td1"><p id ="p134" class ="tdtext"></p></td>
+    </tr>
+
+    <tr id = "p14">
+    <td class ="td1">14</td>
+    <td class ="td1">
+    <img id ="p141" src = " " class ="tdimage">
+    </td>
+    <td class ="td1"><a href = "javascript:getdetails(document.getElementById('p142').innerHTML)" id ="p142" class ="tdtext"></a></td>
+    <td class ="td1"><p id ="p143" class ="tdtext"></p></td>
+    <td class ="td1"><p id ="p144" class ="tdtext"></p></td>
+    </tr>
+
+    <tr id = "p15">
+    <td class ="td1">15</td>
+    <td class ="td1">
+    <img id ="p151" src = " " class ="tdimage">
+    </td>
+    <td class ="td1"><a href = "javascript:getdetails(document.getElementById('p152').innerHTML)" id ="p152" class ="tdtext"></a></td>
+    <td class ="td1"><p id ="p153" class ="tdtext"></p></td>
+    <td class ="td1"><p id ="p154" class ="tdtext"></p></td>
+    </tr>
+
+    <tr id = "p16">
+    <td class ="td1">16</td>
+    <td class ="td1">
+    <img id ="p161" src = " " class ="tdimage">
+    </td>
+    <td class ="td1"><a href = "javascript:getdetails(document.getElementById('p162').innerHTML)" id ="p162" class ="tdtext"></a></td>
+    <td class ="td1"><p id ="p163" class ="tdtext"></p></td>
+    <td class ="td1"><p id ="p164" class ="tdtext"></p></td>
+    </tr>
+
+    <tr id = "p17">
+    <td class ="td1">17</td>
+    <td class ="td1">
+    <img id ="p171" src = " " class ="tdimage">
+    </td>
+    <td class ="td1"><a href = "javascript:getdetails(document.getElementById('p172').innerHTML)" id ="p172" class ="tdtext"></a></td>
+    <td class ="td1"><p id ="p173" class ="tdtext"></p></td>
+    <td  class ="td1"><p id ="p174"class ="tdtext"></p></td>
+    </tr>
+
+    <tr id = "p18">
+    <td class ="td1">18</td>
+    <td class ="td1">
+    <img id ="p181" src = " " class ="tdimage">
+    </td>
+    <td class ="td1"><a href = "javascript:getdetails(document.getElementById('p182').innerHTML)" id ="p182" class ="tdtext"></a></td>
+    <td class ="td1"><p id ="p183" class ="tdtext"></p></td>
+    <td class ="td1"><p id ="p184" class ="tdtext"></p></td>
+    </tr>
+
+    <tr id = "p19">
+    <td class ="td1">19</td>
+    <td class ="td1">
+    <img id ="p191" src = " " class ="tdimage">
+    </td>
+    <td class ="td1"><a href = "javascript:getdetails(document.getElementById('p192').innerHTML)" id ="p192" class ="tdtext"></a></td>
+    <td class ="td1"><p id ="p193" class ="tdtext"></p></td>
+    <td class ="td1"><p id ="p194" class ="tdtext"></p></td>
+    </tr>
+
+    <tr id = "p20">
+    <td class ="td1">20</td>
+    <td class ="td1">
+    <img id ="p201" src = " " class ="tdimage">
+    </td>
+    <td class ="td1"><a href = "javascript:getdetails(document.getElementById('p202').innerHTML)" id ="p202" class ="tdtext"></a></td>
+    <td class ="td1"><p id ="p203" class ="tdtext"></p></td>
+    <td class ="td1"><p id ="p204" class ="tdtext"></p></td>
+    </tr>
+
+  </tbody>
+
+</table>
+
+
+<!-- Business card elements -->
+
+
+<div id = "cont2" class="container2">
+
+  <p  id = "name" class = "lf1"><b></b></p>
+
+  <hr style = "width: 855px;" class ="hz2">
+
+<table id = "table2" class = "td2">
+<tr>
+  <td id = "s"><b>Status</b><p id = "status" class = "rcorners1"><b></b></p></td>
+  <td class ="tdd"><b id ="c">Category</b><br><p id = "category" class="latxt"></p></td>
+</tr>
+
+<tr>
+  <td><b id = "a">Address</b><br><p id = "address" class="latxt"></p></td>
+  <td><b id="label_p">Phone Number</b><br><p id ="phone" class="latxt"></p></td>
+</tr>
+
+<tr id = "t2">
+  <td><b style="visibilty: hidden;" id ="t">Transactions Supported</b><br><p  id = "trans" class="latxt"></p></td>
+  <td><b id ="pr">Price</b><br>
+    <p id = "price" class="latxt"></p>
+  </td>
+</tr>
+
+<tr>
+  <td><b id ="m">More Info</b><br><a id ="more" href = "" target = "_blank">Yelp</a></td>
+</table>
+
+<div class ="card1">
+  <div id = "d1" class ="ph1">
+    <img id = "i1" src=" " class = "img1">
+    <p class ="lph1">Photo 1</p>
+  </div>
+
+  <div id = "d2" class ="ph2">
+    <img id = "i2" src=" " class = "img1">
+    <p class ="lph1">Photo 2</p>
+  </div>
+
+  <div id = "d3" class ="ph3">
+    <img id = "i3" src=" " class = "img1">
+    <p class ="lph1">Photo 3</p>
+  </div>
+
+</div>
+</div>
+</body>
+
+</html>
